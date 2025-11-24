@@ -11,7 +11,7 @@ import 'debt_detail_screen.dart';
 import 'record_payment_dialog.dart';
 
 class DebtsOwedScreen extends StatelessWidget {
-  const DebtsOwedScreen({Key? key}) : super(key: key);
+  const DebtsOwedScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

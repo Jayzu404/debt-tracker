@@ -10,7 +10,7 @@ import '../debts_owed/debt_detail_screen.dart';
 import '../debts_owed/record_payment_dialog.dart';
 
 class DebtsToCollectScreen extends StatelessWidget {
-  const DebtsToCollectScreen({Key? key}) : super(key: key);
+  const DebtsToCollectScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

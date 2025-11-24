@@ -9,10 +9,10 @@ class AddDebtDialog extends StatefulWidget {
   final DebtModel? debt;
 
   const AddDebtDialog({
-    Key? key,
+    super.key,
     required this.isIOwe,
     this.debt,
-  }) : super(key: key);
+  });
 
   @override
   State<AddDebtDialog> createState() => _AddDebtDialogState();
@@ -45,7 +45,7 @@ class _AddDebtDialogState extends State<AddDebtDialog> {
   @override
   Widget build(BuildContext context) {
     final isEdit = widget.debt != null;
-    
+
     return AlertDialog(
       title: Text(isEdit ? AppStrings.editDebt : AppStrings.addDebt),
       content: Form(
@@ -77,7 +77,8 @@ class _AddDebtDialogState extends State<AddDebtDialog> {
                   prefixIcon: Icon(Icons.attach_money),
                   prefixText: '₱',
                 ),
-                keyboardType: const TextInputType.numberWithOptions(decimal: true),
+                keyboardType:
+                    const TextInputType.numberWithOptions(decimal: true),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter an amount';
@@ -132,7 +133,7 @@ class _AddDebtDialogState extends State<AddDebtDialog> {
           type: widget.isIOwe ? DebtType.iOwe : DebtType.owedToMe,
           description: description,
         );
-        
+
         if (mounted) {
           Navigator.pop(context);
           ScaffoldMessenger.of(context).showSnackBar(
@@ -146,7 +147,7 @@ class _AddDebtDialogState extends State<AddDebtDialog> {
           description: description,
         );
         await provider.updateDebt(updatedDebt);
-        
+
         if (mounted) {
           Navigator.pop(context);
           ScaffoldMessenger.of(context).showSnackBar(

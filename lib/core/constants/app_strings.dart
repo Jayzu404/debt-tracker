@@ -1,39 +1,43 @@
-import 'package:flutter/material.dart';
+class AppStrings {
+  static const String appName = 'Debt Tracker';
 
-class AppColors {
-  static const Color primary = Color(0xFF2563EB);
-  static const Color primaryDark = Color(0xFF1E40AF);
-  static const Color primaryLight = Color(0xFF3B82F6);
-  
-  static const Color accent = Color(0xFF10B981);
-  static const Color accentDark = Color(0xFF059669);
-  
-  static const Color success = Color(0xFF10B981);
-  static const Color warning = Color(0xFFF59E0B);
-  static const Color error = Color(0xFFEF4444);
-  static const Color info = Color(0xFF3B82F6);
-  
-  static const Color debtIOwe = Color(0xFFEF4444);
-  static const Color debtOwedToMe = Color(0xFF10B981);
-  
-  static const Color white = Color(0xFFFFFFFF);
-  static const Color black = Color(0xFF000000);
-  static const Color grey50 = Color(0xFFF9FAFB);
-  static const Color grey100 = Color(0xFFF3F4F6);
-  static const Color grey200 = Color(0xFFE5E7EB);
-  static const Color grey300 = Color(0xFFD1D5DB);
-  static const Color grey400 = Color(0xFF9CA3AF);
-  static const Color grey500 = Color(0xFF6B7280);
-  static const Color grey600 = Color(0xFF4B5563);
-  static const Color grey700 = Color(0xFF374151);
-  static const Color grey800 = Color(0xFF1F2937);
-  static const Color grey900 = Color(0xFF111827);
-  
-  static const Color background = Color(0xFFF9FAFB);
-  static const Color surface = Color(0xFFFFFFFF);
-  static const Color cardBackground = Color(0xFFFFFFFF);
-  
-  static const Color textPrimary = Color(0xFF111827);
-  static const Color textSecondary = Color(0xFF6B7280);
-  static const Color textTertiary = Color(0xFF9CA3AF);
+  // Navigation
+  static const String navDashboard = 'Dashboard';
+  static const String navIOwe = 'I Owe';
+  static const String navToCollect = 'To Collect';
+  static const String navHistory = 'History';
+  static const String navMore = 'More';
+
+  // Dashboard
+  static const String totalIOwe = 'Total I Owe';
+  static const String totalToCollect = 'Total To Collect';
+  static const String activeDebts = 'Active Debts';
+  static const String settledDebts = 'Settled Debts';
+  static const String quickActions = 'Quick Actions';
+  static const String recentTransactions = 'Recent Transactions';
+  static const String noTransactions = 'No transactions yet';
+
+  // Common UI
+  static const String cancel = 'Cancel';
+  static const String save = 'Save';
+  static const String add = 'Add';
+
+  // Debt dialogs
+  static const String addDebt = 'Add Debt';
+  static const String editDebt = 'Edit Debt';
+  static const String personName = 'Person name';
+  static const String amount = 'Amount';
+  static const String description = 'Description';
+  static const String debtAdded = 'Debt added';
+  static const String debtUpdated = 'Debt updated';
+  static const String remaining = 'Remaining';
+  static const String total = 'Total';
+  static const String paid = 'Paid';
+  static const String deleteDebt = 'Delete debt';
+  static const String debtDeleted = 'Debt deleted';
+  static const String delete = 'Delete';
+  static const String recordPayment = 'Record payment';
+  static const String paymentAmount = 'Payment amount';
+  static const String note = 'Note';
+  static const String paymentRecorded = 'Payment recorded';
 }

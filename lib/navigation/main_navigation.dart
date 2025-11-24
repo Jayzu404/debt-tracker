@@ -8,7 +8,7 @@ import '../presentation/screens/transactions/transactions_screen.dart';
 import '../presentation/screens/more/more_screen.dart';
 
 class MainNavigation extends StatefulWidget {
-  const MainNavigation({Key? key}) : super(key: key);
+  const MainNavigation({super.key});
 
   @override
   State<MainNavigation> createState() => _MainNavigationState();
@@ -37,7 +37,7 @@ class _MainNavigationState extends State<MainNavigation> {
           color: AppColors.white,
           boxShadow: [
             BoxShadow(
-              color: AppColors.grey300.withOpacity(0.5),
+              color: AppColors.grey300.withAlpha(128),
               blurRadius: 10,
               offset: const Offset(0, -2),
             ),

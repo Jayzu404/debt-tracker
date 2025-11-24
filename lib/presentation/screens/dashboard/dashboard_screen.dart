@@ -9,7 +9,7 @@ import '../../widgets/transaction_item.dart';
 import '../debts_owed/add_debt_dialog.dart';
 
 class DashboardScreen extends StatelessWidget {
-  const DashboardScreen({Key? key}) : super(key: key);
+  const DashboardScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -52,14 +52,10 @@ class DashboardScreen extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 16),
-        GridView.count(
-          crossAxisCount: 2,
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          crossAxisSpacing: 12,
-          mainAxisSpacing: 12,
-          childAspectRatio: 1.5,  // FIXED: Increased from 1.3 to make cards shorter
-          children: [
+        LayoutBuilder(builder: (context, constraints) {
+          final spacing = 12.0;
+          final itemWidth = (constraints.maxWidth - spacing) / 2;
+          final items = [
             StatCard(
               title: AppStrings.totalIOwe,
               value: AppDateUtils.formatCurrency(provider.totalDebtIOwe),
@@ -84,8 +80,15 @@ class DashboardScreen extends StatelessWidget {
               icon: Icons.check_circle,
               color: AppColors.success,
             ),
-          ],
-        ),
+          ];
+
+          return Wrap(
+            spacing: spacing,
+            runSpacing: spacing,
+            children:
+                items.map((w) => SizedBox(width: itemWidth, child: w)).toList(),
+          );
+        }),
       ],
     );
   }
@@ -116,7 +119,8 @@ class DashboardScreen extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(width: 12),            Expanded(
+            const SizedBox(width: 12),
+            Expanded(
               child: ElevatedButton.icon(
                 onPressed: () => _showAddDebtDialog(context, isIOwe: false),
                 icon: const Icon(Icons.add),

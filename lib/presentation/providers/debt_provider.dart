@@ -12,14 +12,15 @@ class DebtProvider extends ChangeNotifier {
   List<DebtModel> get debtsIOwe => _repository.getDebtsIOwe();
   List<DebtModel> get debtsOwedToMe => _repository.getDebtsOwedToMe();
   List<DebtModel> get activeDebts => _repository.getActiveDebts();
-  List<TransactionModel> get allTransactions => _repository.getAllTransactions();
+  List<TransactionModel> get allTransactions =>
+      _repository.getAllTransactions();
 
   double get totalDebtIOwe => _repository.getTotalDebtIOwe();
   double get totalDebtOwedToMe => _repository.getTotalDebtOwedToMe();
   int get activeDebtsCount => _repository.getActiveDebtsCount();
   int get settledDebtsCount => _repository.getSettledDebtsCount();
 
-  Future<void> addDebt({
+  Future<DebtModel> addDebt({
     required String personName,
     required double amount,
     required DebtType type,
@@ -48,6 +49,7 @@ class DebtProvider extends ChangeNotifier {
 
     await _repository.addDebt(debt);
     notifyListeners();
+    return debt;
   }
 
   Future<void> updateDebt(DebtModel debt) async {
@@ -81,8 +83,8 @@ class DebtProvider extends ChangeNotifier {
       debtId: debt.id,
       personName: debt.personName,
       amount: amount,
-      type: debt.type == DebtType.iOwe 
-          ? TransactionType.payment 
+      type: debt.type == DebtType.iOwe
+          ? TransactionType.payment
           : TransactionType.received,
       note: note,
       createdAt: DateTime.now(),

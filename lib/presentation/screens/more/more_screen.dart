@@ -5,7 +5,7 @@ import '../../../core/constants/app_strings.dart';
 import '../../providers/debt_provider.dart';
 
 class MoreScreen extends StatelessWidget {
-  const MoreScreen({Key? key}) : super(key: key);
+  const MoreScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -120,7 +120,8 @@ class MoreScreen extends StatelessWidget {
       leading: Container(
         padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
-          color: (textColor ?? AppColors.primary).withOpacity(0.1),
+          color:
+              (textColor ?? AppColors.primary).withAlpha((0.1 * 255).round()),
           borderRadius: BorderRadius.circular(8),
         ),
         child: Icon(

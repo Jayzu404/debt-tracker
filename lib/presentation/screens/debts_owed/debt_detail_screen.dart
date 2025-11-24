@@ -13,9 +13,9 @@ class DebtDetailScreen extends StatelessWidget {
   final DebtModel debt;
 
   const DebtDetailScreen({
-    Key? key,
+    super.key,
     required this.debt,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -62,14 +62,14 @@ class DebtDetailScreen extends StatelessWidget {
   }
 
   Widget _buildDebtSummary(DebtModel debt) {
-    final color = debt.type == DebtType.iOwe 
-        ? AppColors.debtIOwe 
+    final color = debt.type == DebtType.iOwe
+        ? AppColors.debtIOwe
         : AppColors.debtOwedToMe;
 
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(24),
-      color: color.withOpacity(0.1),
+      color: color.withAlpha((0.1 * 255).round()),
       child: Column(
         children: [
           Text(
@@ -279,7 +279,8 @@ class DebtDetailScreen extends StatelessWidget {
       context: context,
       builder: (context) => AlertDialog(
         title: const Text(AppStrings.deleteDebt),
-        content: const Text('Are you sure you want to delete this debt? This action cannot be undone.'),
+        content: const Text(
+            'Are you sure you want to delete this debt? This action cannot be undone.'),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),

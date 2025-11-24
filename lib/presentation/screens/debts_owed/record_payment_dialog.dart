@@ -10,9 +10,9 @@ class RecordPaymentDialog extends StatefulWidget {
   final DebtModel debt;
 
   const RecordPaymentDialog({
-    Key? key,
+    super.key,
     required this.debt,
-  }) : super(key: key);
+  });
 
   @override
   State<RecordPaymentDialog> createState() => _RecordPaymentDialogState();
