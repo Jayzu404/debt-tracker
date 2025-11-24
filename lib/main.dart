@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'theme/theme.dart';
 
 void main() {
-  runApp(const DebtTrackerApp());
+  runApp(
+    const ProviderScope(
+      child: DebtTrackerApp(),
+    ),
+  );
 }
 
 class DebtTrackerApp extends StatelessWidget {
@@ -16,7 +21,7 @@ class DebtTrackerApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: const Scaffold(
         body: Center(
-          child: Text('Dashboard Placeholder'),
+          child: Text('State Management Ready'),
         ),
       ),
     );
